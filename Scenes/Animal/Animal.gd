@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 	debug_string += "\ndragged_vector: %.0f, %.0f" % [
 		_dragged_vector.x, _dragged_vector.y,
 	]
-	debug_string += "\ndimpulse: %.0f" % [
+	debug_string += "\nimpulse: %.0f" % [
 		calculate_impulse().length()
 	]
 	
@@ -98,6 +98,10 @@ func scale_arrow() -> void:
 	arrow.scale.x = lerpf(_arrow_scale_x, _arrow_scale_x * scale_multiplier, percent_change)
 	
 	arrow.rotation = (_start - position).angle()
+
+
+func die() -> void:
+	queue_free()
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
