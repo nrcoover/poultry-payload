@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://c854fjmagloxd" path="res://Scenes/LevelBase/LevelBase.gd" id="1_3lxj6"]
 [ext_resource type="Texture2D" uid="uid://brpmogvy2ks7o" path="res://Assets/scene/colored_castle.png" id="1_5ufo3"]
-[ext_resource type="PackedScene" uid="uid://ctsfuvouojul0" path="res://Water/Water.tscn" id="3_78m1b"]
-[ext_resource type="PackedScene" uid="uid://dy47hocup6out" path="res://Cup/Cup.tscn" id="4_3lxj6"]
+[ext_resource type="PackedScene" uid="uid://ctsfuvouojul0" path="res://Scenes/Water/Water.tscn" id="3_78m1b"]
+[ext_resource type="PackedScene" uid="uid://dy47hocup6out" path="res://Scenes/Cup/Cup.tscn" id="4_3lxj6"]
+[ext_resource type="PackedScene" uid="uid://cdw57plmwlpx7" path="res://Scenes/GameUi/GameUi.tscn" id="5_lmtt4"]
 
 [node name="LevelBase" type="Node" unique_id=296444468]
 script = ExtResource("1_3lxj6")
@@ -27,3 +28,7 @@ position = Vector2(606, 418)
 
 [node name="Cup3" parent="." unique_id=1630908697 instance=ExtResource("4_3lxj6")]
 position = Vector2(983, 215)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=444826747]
+
+[node name="GameUi" parent="CanvasLayer" unique_id=154701402 instance=ExtResource("5_lmtt4")]

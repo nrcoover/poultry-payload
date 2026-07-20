@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ctsfuvouojul0"]
 
-[ext_resource type="Script" uid="uid://byhkqmuh48n51" path="res://Water/Water.gd" id="1_jg1tu"]
+[ext_resource type="Script" uid="uid://byhkqmuh48n51" path="res://Scenes/Water/Water.gd" id="1_jg1tu"]
 [ext_resource type="Texture2D" uid="uid://316wbxjnr3fk" path="res://Assets/scene/waterTop_high.png" id="1_todos"]
 [ext_resource type="AudioStream" uid="uid://btlq1n21uwhml" path="res://Assets/audio/splash.ogg" id="3_etan3"]
 

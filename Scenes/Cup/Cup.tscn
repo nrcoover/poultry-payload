@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dy47hocup6out"]
 
 [ext_resource type="Texture2D" uid="uid://c16d5vtmtn0n0" path="res://Assets/env/elementWood004.png" id="1_0pxmq"]
-[ext_resource type="Script" uid="uid://dlnq4hjr020be" path="res://Cup/Cup.gd" id="1_uch4k"]
+[ext_resource type="Script" uid="uid://dlnq4hjr020be" path="res://Scenes/Cup/Cup.gd" id="1_uch4k"]
 [ext_resource type="Texture2D" uid="uid://ds5px3sjdgnjs" path="res://Assets/env/elementWood015.png" id="2_vhh8n"]
 [ext_resource type="AudioStream" uid="uid://dospvawdcranh" path="res://Assets/audio/vanish.wav" id="3_vhh8n"]
 

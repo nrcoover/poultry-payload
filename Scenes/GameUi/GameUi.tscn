@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://cdw57plmwlpx7"]
+
+[ext_resource type="LabelSettings" uid="uid://csmkt2ml7vo3w" path="res://Resources/LightLabel32.tres" id="1_mb7aw"]
+[ext_resource type="LabelSettings" uid="uid://c0pihwsti1466" path="res://Resources/LightBlueLabel96.tres" id="2_anb74"]
+[ext_resource type="LabelSettings" uid="uid://cgtwxbit28akf" path="res://Resources/LightBeigeLabel64.tres" id="3_anolp"]
+
+[node name="GameUi" type="Control" unique_id=154701402]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1668460053]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+
+[node name="VBoxStats" type="VBoxContainer" parent="MarginContainer" unique_id=1650242694]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/VBoxStats" unique_id=279954158]
+layout_mode = 2
+text = "Level: 00"
+label_settings = ExtResource("1_mb7aw")
+
+[node name="AttemptsLabel" type="Label" parent="MarginContainer/VBoxStats" unique_id=111290936]
+layout_mode = 2
+text = "Attempts: 000"
+label_settings = ExtResource("1_mb7aw")
+
+[node name="VBoxComplete" type="VBoxContainer" parent="." unique_id=1431162786]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelCompleteLabel" type="Label" parent="VBoxComplete" unique_id=86797249]
+layout_mode = 2
+text = "Level Complete"
+label_settings = ExtResource("2_anb74")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PressEscapeLabel" type="Label" parent="VBoxComplete" unique_id=2012475651]
+layout_mode = 2
+text = "Press Escape"
+label_settings = ExtResource("3_anolp")
+horizontal_alignment = 1
+vertical_alignment = 1
