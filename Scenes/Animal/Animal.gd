@@ -112,7 +112,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 		start_dragging()
 
 
-func _on_body_entered(body: Node) -> void:
+func _on_body_entered(_body: Node) -> void:
 	if not kick_sound.is_playing():
 		kick_sound.play()
 
