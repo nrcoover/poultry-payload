@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://dy47hocup6out"]
+
+[ext_resource type="Texture2D" uid="uid://c16d5vtmtn0n0" path="res://Assets/env/elementWood004.png" id="1_0pxmq"]
+[ext_resource type="Script" uid="uid://dlnq4hjr020be" path="res://Cup/Cup.gd" id="1_uch4k"]
+[ext_resource type="Texture2D" uid="uid://ds5px3sjdgnjs" path="res://Assets/env/elementWood015.png" id="2_vhh8n"]
+[ext_resource type="AudioStream" uid="uid://dospvawdcranh" path="res://Assets/audio/vanish.wav" id="3_vhh8n"]
+
+[sub_resource type="Animation" id="Animation_uch4k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0pxmq"]
+resource_name = "vanish"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.8, 0.8), Vector2(0, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_vhh8n")
+}],
+"times": PackedFloat32Array(0.03333333)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.1, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 18.84955592153876]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vhh8n"]
+_data = {
+&"RESET": SubResource("Animation_uch4k"),
+&"vanish": SubResource("Animation_0pxmq")
+}
+
+[node name="Cup" type="StaticBody2D" unique_id=585766595]
+script = ExtResource("1_uch4k")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1932729349]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.5, 0.5)
+
+[node name="LeftRamp" type="Sprite2D" parent="Visuals" unique_id=641708700]
+position = Vector2(-72, -70)
+texture = ExtResource("1_0pxmq")
+
+[node name="RightRamp" type="Sprite2D" parent="Visuals" unique_id=1174738496]
+position = Vector2(72, -70)
+texture = ExtResource("1_0pxmq")
+flip_h = true
+
+[node name="Base" type="Sprite2D" parent="Visuals" unique_id=1707497885]
+texture = ExtResource("2_vhh8n")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1899887568]
+polygon = PackedVector2Array(-53, -52, -55, 17, 55, 17, 53, -53, 17, -17, -17, -17)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1654804201]
+libraries/ = SubResource("AnimationLibrary_vhh8n")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="." unique_id=1349736359]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

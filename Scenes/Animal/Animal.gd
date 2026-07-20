@@ -13,6 +13,7 @@ const IMPULSE_MAX: float = 3000.0
 @onready var arrow: Sprite2D = $Arrow
 @onready var stretch_sound: AudioStreamPlayer2D = $Audio/StretchSound
 @onready var launch_sound: AudioStreamPlayer2D = $Audio/LaunchSound
+@onready var kick_sound: AudioStreamPlayer2D = $Audio/KickSound
 
 var _start: Vector2 = Vector2.ZERO
 var _drag_start: Vector2 = Vector2.ZERO
@@ -31,7 +32,7 @@ func _ready() -> void:
 	_arrow_scale_x = arrow.scale.x
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var debug_string: String = "Freeze: %s\nContactCount: %d\nSleeping: %s" % [
 		freeze,
 		get_contact_count(),
@@ -51,7 +52,7 @@ func _process(delta: float) -> void:
 	label.text = debug_string
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if _is_dragging: handle_dragging()
 
 
@@ -101,10 +102,25 @@ func scale_arrow() -> void:
 
 
 func die() -> void:
+	SignalHub.emit_on_animal_died()
 	queue_free()
 
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("drag"):
 		input_event.disconnect(_on_input_event)
 		start_dragging()
+
+
+func _on_body_entered(body: Node) -> void:
+	if not kick_sound.is_playing():
+		kick_sound.play()
+
+
+func _on_sleeping_state_changed() -> void:
+	if sleeping:
+		for body in get_colliding_bodies():
+			if body is Cup:
+				body.die()
+		
+		die()
