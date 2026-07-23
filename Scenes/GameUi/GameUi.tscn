@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cdw57plmwlpx7"]
 
 [ext_resource type="LabelSettings" uid="uid://csmkt2ml7vo3w" path="res://Resources/LightLabel32.tres" id="1_mb7aw"]
+[ext_resource type="Script" uid="uid://cj1veur861wuw" path="res://Scenes/GameUi/GameUi.gd" id="1_tt7lr"]
 [ext_resource type="LabelSettings" uid="uid://c0pihwsti1466" path="res://Resources/LightBlueLabel96.tres" id="2_anb74"]
 [ext_resource type="LabelSettings" uid="uid://cgtwxbit28akf" path="res://Resources/LightBeigeLabel64.tres" id="3_anolp"]
 
@@ -11,6 +12,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_tt7lr")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1668460053]
 layout_mode = 0
