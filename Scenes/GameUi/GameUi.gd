@@ -2,6 +2,7 @@ extends Control
 
 
 @onready var v_box_complete: VBoxContainer = $VBoxComplete
+@onready var music: AudioStreamPlayer = $Music
 
 var _total_cups: int = 0
 var _completed_cups: int = 0
@@ -21,6 +22,7 @@ func on_cup_destroyed() -> void:
 	
 	if _completed_cups == _total_cups:
 		v_box_complete.show()
+		music.play()
 
 
 func increment_completed_cups() -> void:
