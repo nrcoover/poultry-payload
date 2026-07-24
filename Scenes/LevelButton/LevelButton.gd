@@ -2,7 +2,9 @@ extends TextureButton
 
 
 @export var level_number: int = 0
+
 @onready var level_label: Label = $MarginContainer/VBox/LevelLabel
+@onready var score_label: Label = $MarginContainer/VBox/ScoreLabel
 
 var _original_scale: Vector2
 var _scale_multiplier: float = 1.1
@@ -11,6 +13,7 @@ var _scale_multiplier: float = 1.1
 func _ready() -> void:
 	set_original_scale()
 	set_level_text()
+	set_score_text()
 
 
 func _on_mouse_entered() -> void:
@@ -34,7 +37,12 @@ func set_level_text() -> void:
 	level_label.text = "LV: %s" % str(level_number)
 
 
+func set_score_text() -> void:
+	score_label.text = "SC: %d" % ScoreManager.get_level_best(level_number)
+
+
 func _on_pressed() -> void:
+	ScoreManager.set_level(level_number)
 	open_level(level_number)
 
 

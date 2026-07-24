@@ -51,6 +51,7 @@ func update_attempts_ui() -> void:
 
 
 func engage_end_screen() -> void:
+	ScoreManager.set_score_for_current_level(_attempts)
 	v_box_complete.show()
 	music.play()
 	get_tree().paused = true
