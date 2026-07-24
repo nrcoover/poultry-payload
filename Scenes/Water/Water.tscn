@@ -10,6 +10,7 @@
 script = ExtResource("1_jg1tu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=296548012]
+z_index = 10
 texture_repeat = 2
 texture = ExtResource("1_todos")
 region_enabled = true
