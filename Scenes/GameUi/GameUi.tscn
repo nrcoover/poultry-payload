@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://u8r0j3hxs00w" path="res://Assets/audio/jazzyfrenchy.mp3" id="5_5hvfd"]
 
 [node name="GameUi" type="Control" unique_id=154701402]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,16 +25,35 @@ theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 
 [node name="VBoxStats" type="VBoxContainer" parent="MarginContainer" unique_id=1650242694]
+custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 
-[node name="LevelLabel" type="Label" parent="MarginContainer/VBoxStats" unique_id=279954158]
+[node name="HBoxLevel" type="HBoxContainer" parent="MarginContainer/VBoxStats" unique_id=1691800354]
 layout_mode = 2
-text = "Level: 00"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxStats/HBoxLevel" unique_id=499639339]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level: "
 label_settings = ExtResource("1_mb7aw")
 
-[node name="AttemptsLabel" type="Label" parent="MarginContainer/VBoxStats" unique_id=111290936]
+[node name="LevelLabel" type="Label" parent="MarginContainer/VBoxStats/HBoxLevel" unique_id=279954158]
 layout_mode = 2
-text = "Attempts: 000"
+text = "000"
+label_settings = ExtResource("1_mb7aw")
+
+[node name="HBoxAttempts" type="HBoxContainer" parent="MarginContainer/VBoxStats" unique_id=35585409]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxStats/HBoxAttempts" unique_id=261343446]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Attempts: "
+label_settings = ExtResource("1_mb7aw")
+
+[node name="AttemptsLabel" type="Label" parent="MarginContainer/VBoxStats/HBoxAttempts" unique_id=111290936]
+layout_mode = 2
+text = "000"
 label_settings = ExtResource("1_mb7aw")
 
 [node name="VBoxComplete" type="VBoxContainer" parent="." unique_id=1431162786]

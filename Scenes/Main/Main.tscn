@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://b25pl3t83oyr"]
 
 [ext_resource type="Texture2D" uid="uid://caq8obdgoxxvt" path="res://Assets/env/MainBG.png" id="1_p8rbg"]
+[ext_resource type="PackedScene" uid="uid://dsat4u4dgeogt" path="res://Scenes/LevelButton/LevelButton.tscn" id="2_qtv3y"]
+[ext_resource type="AudioStream" uid="uid://dryu2517n4e8r" path="res://Assets/audio/birdsong.wav" id="3_cmk6n"]
+[ext_resource type="LabelSettings" uid="uid://c0pihwsti1466" path="res://Resources/LightBlueLabel96.tres" id="3_i3fi7"]
 
 [node name="Main" type="Control" unique_id=440917277]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,3 +23,44 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_p8rbg")
 expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=534554023]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=215097313]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+
+[node name="LevelButton" parent="MarginContainer/HBoxContainer" unique_id=1789455666 instance=ExtResource("2_qtv3y")]
+layout_mode = 2
+level_number = 1
+
+[node name="LevelButton2" parent="MarginContainer/HBoxContainer" unique_id=433246715 instance=ExtResource("2_qtv3y")]
+layout_mode = 2
+level_number = 2
+
+[node name="LevelButton3" parent="MarginContainer/HBoxContainer" unique_id=652936699 instance=ExtResource("2_qtv3y")]
+layout_mode = 2
+level_number = 3
+
+[node name="TitleLabel" type="Label" parent="MarginContainer" unique_id=1464251899]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Poultry Payload"
+label_settings = ExtResource("3_i3fi7")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=307806849]
+stream = ExtResource("3_cmk6n")
+autoplay = true

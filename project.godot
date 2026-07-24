@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PoultryPayload"
-run/main_scene="uid://dam2fkye8bd16"
+run/main_scene="uid://b25pl3t83oyr"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 

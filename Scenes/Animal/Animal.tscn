@@ -22,6 +22,7 @@ max_contacts_reported = 1
 script = ExtResource("1_oryip")
 
 [node name="Debug" type="Label" parent="." unique_id=1465433938]
+visible = false
 top_level = true
 offset_left = 23.0
 offset_top = 20.0

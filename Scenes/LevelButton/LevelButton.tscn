@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dsat4u4dgeogt"]
+
+[ext_resource type="Texture2D" uid="uid://d0mhm4a8atjo2" path="res://Assets/ui/panel_beige.png" id="1_145gk"]
+[ext_resource type="Script" uid="uid://bn7366o3n6bq3" path="res://Scenes/LevelButton/LevelButton.gd" id="2_3r2e7"]
+[ext_resource type="FontFile" uid="uid://2hn6xr8rjegx" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="2_145gk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3r2e7"]
+font = ExtResource("2_145gk")
+font_size = 32
+font_color = Color(0.85882354, 0.85882354, 0.85882354, 1)
+outline_size = 6
+outline_color = Color(0.03529412, 0.03529412, 0.03529412, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_anpwf"]
+font = ExtResource("2_145gk")
+font_size = 24
+font_color = Color(0.85882354, 0.85882354, 0.85882354, 1)
+outline_size = 6
+outline_color = Color(0.03529412, 0.03529412, 0.03529412, 1)
+
+[node name="LevelButton" type="TextureButton" unique_id=1789455666]
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture_normal = ExtResource("1_145gk")
+script = ExtResource("2_3r2e7")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=419537798]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 8
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer" unique_id=343100937]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/VBox" unique_id=374553835]
+layout_mode = 2
+text = "LEVEL"
+label_settings = SubResource("LabelSettings_3r2e7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBox" unique_id=1075993297]
+layout_mode = 2
+text = "SCORE"
+label_settings = SubResource("LabelSettings_anpwf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
