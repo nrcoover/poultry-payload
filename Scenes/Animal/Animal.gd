@@ -82,6 +82,7 @@ func start_dragging() -> void:
 
 
 func start_release() -> void:
+	SignalHub.emit_on_attempt_made()
 	launch_sound.play()
 	arrow.hide()
 	_is_dragging = false

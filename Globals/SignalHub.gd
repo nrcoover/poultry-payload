@@ -3,6 +3,7 @@ extends Node
 
 signal on_animal_died
 signal on_cup_destroyed
+signal on_attempt_made
 
 
 func emit_on_animal_died() -> void:
@@ -11,3 +12,7 @@ func emit_on_animal_died() -> void:
 
 func emit_on_cup_destroyed() -> void:
 	on_cup_destroyed.emit()
+
+
+func emit_on_attempt_made() -> void:
+	on_attempt_made.emit()
