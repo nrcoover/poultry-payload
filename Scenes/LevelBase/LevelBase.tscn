@@ -22,3 +22,5 @@ position = Vector2(191, 419)
 [node name="GameUi" parent="." unique_id=154701402 instance=ExtResource("5_lmtt4")]
 
 [node name="CupsContainer" type="Node" parent="." unique_id=1708254956]
+
+[node name="BlocksContainer" type="Node" parent="." unique_id=1962187606]
